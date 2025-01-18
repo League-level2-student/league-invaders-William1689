@@ -3,6 +3,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -28,9 +30,10 @@ public class LeagueInvaders {
 		frame.setVisible(true);
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.addKeyListener(panel);
 	}
 
-	public class GamePanel extends JPanel implements ActionListener {
+	public class GamePanel extends JPanel implements ActionListener, KeyListener {  
 		Timer frameDraw;
 		Font textFont;
 		Font titleFont ;
@@ -101,11 +104,51 @@ public class LeagueInvaders {
 		    updateEndState();
 		}
 	}
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getKeyCode()==KeyEvent.VK_ENTER) {
+		    if (currentState == END) {
+		        currentState = MENU;
+		    } else {
+		        currentState++;
+		    }   
+		}   
+		if (e.getKeyCode()==KeyEvent.VK_UP) {
+		    System.out.println("UP");
+		}
+		if (e.getKeyCode()==KeyEvent.VK_UP) {
+		    System.out.println("DOWN");
+		}
+
+		if (e.getKeyCode()==KeyEvent.VK_UP) {
+		    System.out.println("RIGHT");
+		}
+
+		if (e.getKeyCode()==KeyEvent.VK_UP) {
+		    System.out.println("LEFT");
+		}
+
+
+	
+	
+	}
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 	}
 
 	public static void main(String[] args) {
 
 		LeagueInvaders game = new LeagueInvaders();
 		game.setup();
+		
 	}
 }
