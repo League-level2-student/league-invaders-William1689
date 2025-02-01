@@ -11,8 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class LeagueInvaders {
 
+public class LeagueInvaders {
+	
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 800;
 	JFrame frame;

@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void updateGameState() {
-		
+		ship.update();
 	}
 
 	void updateEndState() {
@@ -99,33 +99,39 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		    }   
 		}   
 		if (e.getKeyCode()==KeyEvent.VK_UP) {
-		    System.out.println("UP");
-		    
-		    ship.up();
+		ship.movingUp = true;
 		}
 		if (e.getKeyCode()==KeyEvent.VK_DOWN) {
-		    System.out.println("DOWN");
-		    ship.down();
+		   ship.movingDown = true;
 		}
 
 		if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
-		    System.out.println("RIGHT");
-		    ship.right();
+			ship.movingRight = true;
 		}
 
 		if (e.getKeyCode()==KeyEvent.VK_LEFT) {
-		    System.out.println("LEFT");
-		    ship.left();
+		   ship.movingLeft = true;
 		}
 
-
+}
 	
-	
-	}
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		if (e.getKeyCode()==KeyEvent.VK_UP) {
+			ship.movingUp = false;
+			}
+			if (e.getKeyCode()==KeyEvent.VK_DOWN) {
+			   ship.movingDown = false;
+			}
+
+			if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
+				ship.movingRight = false;
+			}
+
+			if (e.getKeyCode()==KeyEvent.VK_LEFT) {
+			   ship.movingLeft =false;
+			}
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {
