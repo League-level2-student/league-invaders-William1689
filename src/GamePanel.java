@@ -57,7 +57,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
 		g.setFont(titleFont);
 		g.setColor(Color.YELLOW);
-		g.drawString("Shrek Invaders", 125, 100);
+		g.drawString("Universe Invaders", 105, 100);
 		g.setFont(textFont);
 		g.drawString("Press enter to begin", 100, 400);
 		g.drawString("Press space for instructions", 100, 600);   
