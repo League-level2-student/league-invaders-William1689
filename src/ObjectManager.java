@@ -34,8 +34,7 @@ public class ObjectManager {
 				p.isActive = false;
 			}
 		}
-
-
+rocket.update();
 	}
 
 	public void draw(Graphics g) {
@@ -53,6 +52,14 @@ public class ObjectManager {
 			Alien a = iter.next();
 			if(!a.isActive) {
 				iter.remove();
+			}
+	
+		}
+		Iterator<Projectile> iters = projectiles.iterator();
+		while(iters.hasNext()) {
+			Projectile b = iters.next();
+			if(!b.isActive) {
+				iters.remove();
 			}
 	
 		}
