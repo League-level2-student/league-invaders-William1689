@@ -8,6 +8,7 @@ public class Alien extends GameObject {
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
+	
 	public Alien(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		speed = 1;
