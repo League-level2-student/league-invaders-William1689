@@ -38,7 +38,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		    }
 		}
 	public void startGame() {
-		 alienSpawn = new Timer(1000 , manager);
+		 alienSpawn = new Timer(90 , manager);
 		    alienSpawn.start();
 	}
 		void loadImage(String imageFile) {
@@ -72,12 +72,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void updateGameState() {
-	
+	if(ship.isActive == false) {
+		updateEndState();
+	}
 		manager.update();
+		
 	}
 
 	void updateEndState() {
-
+	manager.getScore();
 	}
 
 	void drawMenuState(Graphics g) {
@@ -126,9 +129,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode()==KeyEvent.VK_ENTER) {
 		    if (currentState == END) {
 		        currentState = MENU;
-		        startGame();
+		   
 		    } else {
 		        currentState++;
+		        if(currentState == GAME) {
+		            startGame();
+		        }
 		    }   
 		}   
 		if (e.getKeyCode()==KeyEvent.VK_UP) {
