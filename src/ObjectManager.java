@@ -59,14 +59,15 @@ purgeObjects();
 		}
 	}
 	public void checkCollision() {
-		for (Alien a : aliens) {
+		for (Alien a : aliens) {if(rocket.collisionBox.intersects(a.collisionBox)) {
+			rocket.isActive = false;
+			
+			
+		}
 			for(Projectile p : projectiles) {
-				if(rocket.collisionBox.intersects(a.collisionBox)) {
-					rocket.isActive = false;
 				
-					
-				}
 				if(a.collisionBox.intersects(p.collisionBox)) {
+					
 				a.isActive = false;
 				p.isActive = false;
 				score ++;
